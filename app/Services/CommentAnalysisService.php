@@ -46,6 +46,7 @@ class CommentAnalysisService
             'likes' => $likes,
             'replies' => $replies,
             'has_author_replied' => $hasAuthor,
+            'link' => $comment['commentLink'] ?? null,
         ];
 
     }
