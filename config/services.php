@@ -38,6 +38,15 @@ return [
         'model' => env('GEMINI_MODEL'),
     ],
 
+    'scrapper' => [
+        'key' => env('LINKEDIN_SCRAPPER_KEY'),
+    ],
+
+    'supabase' => [
+        'key' => env('SUPABASE_API_KEY'),
+        'url' => env('SUPABASE_URL'),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

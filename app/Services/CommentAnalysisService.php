@@ -17,7 +17,7 @@ class CommentAnalysisService
     {
         $text = $comment['comment'] ?? '';
         $likes = $comment['likes'] ?? 0;
-        $replies = $comment['replies'] ?? [];
+        $replies = $comment['replies_count'] ?? 0;
 
         $analysis = $this->withICP($text);
 
@@ -25,12 +25,12 @@ class CommentAnalysisService
             'post_id' => $postId,
             'sentiment' => $analysis['sentiment'],
             'language_style' => $analysis['language_style'],
-            'engagement_score' => $this->getEngagementScore($likes, count($replies)),
+            'engagement_score' => $this->getEngagementScore($likes, $replies),
             'icp_score' => $analysis['icp_score'],
             'icp_reasoning' => $analysis['icp_reasoning'],
             'comment' => $text,
             'likes' => $likes,
-            'replies' => count($replies)
+            'replies' => $replies
         ];
 
     }

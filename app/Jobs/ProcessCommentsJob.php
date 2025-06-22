@@ -16,24 +16,19 @@ class ProcessCommentsJob implements ShouldQueue
     protected $supabase;
     public CommentAnalysisService $analyzer;
     public $postId = null;
+    public $uuid = null;
+    public $type = null;
 
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct($postId, $uuid, $type)
     {
-        $this->comments = json_decode(Storage::disk('public')->get('reels.json'), true);
-        $this->analyzer = new CommentAnalysisService();
-        $this->supabase = new SupabaseService;
-    }
+        $this->uuid = $uuid;
+        $this->type = $type;
+        $this->postId = $postId;
 
-    public function initiateAnalysis(): void
-    {
-        $res = $this->supabase->insert('posts', [
-            'url' => 'https://www.instagram.com/p/DJ90RZlNas-/'
-        ]);
-
-        $this->postId = $res[0]['id'];
+        $this->comments = json_decode(Storage::disk('public')->get("linkedin/$uuid.json"), true)['comments'];
     }
 
     /**
@@ -41,11 +36,12 @@ class ProcessCommentsJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $this->initiateAnalysis();
+        $this->analyzer = new CommentAnalysisService();
+        $this->supabase = new SupabaseService();
 
         $overall = [];
 
-        $chunks = array_chunk($this->comments, 2); // Process 5 at a time
+        $chunks = array_chunk($this->comments, 2); // Process 2 at a time
 
         foreach ($chunks as $comment) {
             $data = [];

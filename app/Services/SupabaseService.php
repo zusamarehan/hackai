@@ -11,8 +11,8 @@ class SupabaseService
 
     public function __construct()
     {
-        $this->url = env('SUPABASE_URL');
-        $this->key = env('SUPABASE_API_KEY');
+        $this->url = config('services.supabase.url');
+        $this->key = config('services.supabase.key');
     }
 
     private function headers()
