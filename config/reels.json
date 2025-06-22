@@ -1,0 +1,96 @@
+{
+    "metadata": {
+        "reel_url": "https://www.instagram.com/reel/CXyzAbc1234/",
+        "reel_id": "CXyzAbc1234",
+        "caption": "POV: When the code finally works :joy: #developers #memes #reels",
+        "hashtags": [
+            "#developers",
+            "#memes",
+            "#reels"
+        ],
+        "mentions": [
+            "@techbro"
+        ],
+        "upload_time": "2025-06-20T14:32:00Z",
+        "duration_seconds": 28,
+        "audio": {
+            "type": "original",
+            "name": "Original audio by @devlife",
+            "audio_url": "https://www.instagram.com/audio/abc123/"
+        },
+        "video_dimensions": "1080x1920",
+        "thumbnail_url": "https://instagram.com/reelthumb.jpg",
+        "views": 189560,
+        "likes": 12450,
+        "comments_count": 312
+    },
+    "creator": {
+        "username": "devlife",
+        "full_name": "Code & Coffee :coffee:",
+        "profile_url": "https://www.instagram.com/devlife/",
+        "profile_pic_url": "https://instagram.com/pfp.jpg",
+        "bio": "Sharing developer memes and late-night bugs :bug:",
+        "is_verified": false,
+        "followers_count": 45600,
+        "following_count": 321,
+        "posts_count": 213,
+        "external_url": "https://linktr.ee/devlife",
+        "account_type": "Creator"
+    },
+    "stats": {
+        "views": 189560,
+        "likes": 12450,
+        "comments_count": 312,
+        "shares_count": null,
+        "saves_count": null
+    },
+    "comments": [
+        {
+            "username": "coderqueen",
+            "channel_url": "https://www.instagram.com/coderqueen/",
+            "profile_image": "https://instagram.com/user1.jpg",
+            "comment": "Every dev ever! :joy:",
+            "time_posted": "2 hours ago",
+            "likes": 67,
+            "replies": [
+                {
+                    "username": "devlife",
+                    "reply": "Right?! It’s the best feeling :sweat_smile:",
+                    "time_posted": "1 hour ago",
+                    "likes": 12
+                },
+                {
+                    "username": "frontendbabe",
+                    "reply": "Literally me last night!",
+                    "time_posted": "1 hour ago",
+                    "likes": 8
+                }
+            ]
+        },
+        {
+            "username": "juniordev90",
+            "channel_url": "https://www.instagram.com/juniordev90/",
+            "profile_image": "https://instagram.com/user2.jpg",
+            "comment": "When you forget to save and it still works :exploding_head:",
+            "time_posted": "3 hours ago",
+            "likes": 102,
+            "replies": []
+        },
+        {
+            "username": "ai.guy",
+            "channel_url": "https://www.instagram.com/ai.guy/",
+            "profile_image": "https://instagram.com/user3.jpg",
+            "comment": "Wholesome content :sob::heart:",
+            "time_posted": "5 hours ago",
+            "likes": 89,
+            "replies": [
+                {
+                    "username": "mlqueen",
+                    "reply": "Yes!! So relatable :100:",
+                    "time_posted": "4 hours ago",
+                    "likes": 14
+                }
+            ]
+        }
+    ]
+}
