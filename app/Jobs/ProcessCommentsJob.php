@@ -18,6 +18,7 @@ class ProcessCommentsJob implements ShouldQueue
     public $postId = null;
     public $uuid = null;
     public $type = null;
+    public $post;
 
     /**
      * Create a new job instance.
@@ -28,7 +29,8 @@ class ProcessCommentsJob implements ShouldQueue
         $this->type = $type;
         $this->postId = $postId;
 
-        $this->comments = json_decode(Storage::disk('public')->get("linkedin/$uuid.json"), true)['comments'];
+        $this->post = json_decode(Storage::disk('public')->get("linkedin/$uuid.json"), true);
+        $this->comments = $this->post['comments'];
     }
 
     /**
@@ -39,6 +41,8 @@ class ProcessCommentsJob implements ShouldQueue
         $this->analyzer = new CommentAnalysisService();
         $this->supabase = new SupabaseService();
 
+        $author = $this->post['post']['author'] ?? "NO_AUTHOR_FOUND";
+
         $overall = [];
 
         $chunks = array_chunk($this->comments, 2); // Process 2 at a time
@@ -46,7 +50,7 @@ class ProcessCommentsJob implements ShouldQueue
         foreach ($chunks as $comment) {
             $data = [];
             foreach ($comment as $single) {
-                $data[] = $this->analyzer->analyze($single, $this->postId);
+                $data[] = $this->analyzer->analyze($single, $this->postId, $author);
             }
 
             array_push($overall, ... $data);

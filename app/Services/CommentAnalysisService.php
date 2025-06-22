@@ -13,11 +13,25 @@ class CommentAnalysisService
         $this->openAiKey = config('services.openai.key');
     }
 
-    public function analyze(array $comment, $postId): array
+    public function hasAuthorReplied($replies, $author): int
+    {
+        $has = 0;
+
+        foreach ($replies as $reply) {
+            if ($reply['name'] == $author) {
+                $has = 1;
+            }
+        }
+
+        return $has;
+    }
+
+    public function analyze(array $comment, $postId, $author = null): array
     {
         $text = $comment['comment'] ?? '';
         $likes = $comment['likes'] ?? 0;
         $replies = $comment['replies_count'] ?? 0;
+        $hasAuthor = $this->hasAuthorReplied($comment['replies'], $author);
 
         $analysis = $this->withICP($text);
 
@@ -30,7 +44,8 @@ class CommentAnalysisService
             'icp_reasoning' => $analysis['icp_reasoning'],
             'comment' => $text,
             'likes' => $likes,
-            'replies' => $replies
+            'replies' => $replies,
+            'has_author_replied' => $hasAuthor,
         ];
 
     }
